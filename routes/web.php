@@ -5,17 +5,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/login', function () {
-    return view('welcome');
-})->name('login');
 
-//Auth::routes(['register'=>false]);
+Auth::routes(['register'=>false]);
 
 Route::group([
     'middleware' => [],
     'prefix' => 'admin'
 ], function(){
-    Route::get('/dashboard', 'Controller@dashboard')->name('admin.dashboard');
+    Route::get('/dashboard', 'Admin\Controller@dashboard')->name('admin.dashboard');
     Route::resource('/contato', 'Admin\ContactController');
     Route::resource('/empresa', 'Admin\CompanyController');
     Route::resource('/agenda', 'Admin\ScheduleController');
@@ -29,6 +26,5 @@ Route::group([
     })->name('admin.home2');
 });
 
-Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
