@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -9,7 +10,7 @@ Route::get('/', function () {
 Auth::routes(['register'=>false]);
 
 Route::group([
-    'middleware' => [],
+    'middleware' => ['auth'],
     'prefix' => 'admin'
 ], function(){
     Route::get('/dashboard', 'Admin\Controller@dashboard')->name('admin.dashboard');
