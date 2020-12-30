@@ -28,3 +28,7 @@ Route::group([
         return redirect()->route('admin.dashboard');
     })->name('admin.home2');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
