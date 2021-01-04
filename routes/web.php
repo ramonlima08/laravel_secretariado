@@ -11,7 +11,7 @@ Auth::routes(['register'=>false]);
 
 Route::group([
     'middleware' => ['auth'],
-    'prefix' => 'admin'
+    'prefix' => 'admin',
 ], function(){
     Route::get('/dashboard', 'Admin\Controller@dashboard')->name('admin.dashboard');
     Route::resource('/contato', 'Admin\ContactController');

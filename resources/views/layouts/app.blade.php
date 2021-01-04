@@ -14,23 +14,17 @@
 
     {{-- <title>{{ config('app.name', 'Laravel') }}</title>
     --}}
-    <title>@yield('title','Sistema Secretariado')</title>
+    <title>Secretariado | @yield('title','Sistema Secretariado')</title>
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
 
     <!-- CSS Files -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/paper-dashboard.css?v=2.0.1') }}" rel="stylesheet" />
-    {{--
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
 
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="{{ asset('/demo/demo.css') }}" rel="stylesheet" />
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
 
     @stack('styles')
 
@@ -47,7 +41,7 @@
                     <!-- <p>CT</p> -->
                 </a>
                 <a href="https://www.creative-tim.com" class="simple-text logo-normal">
-                    Your Logo
+                    RJ Sites Logo
                     <!-- <div class="logo-image-big">
                 <img src="../assets/img/logo-big.png">
                 </div> -->
@@ -55,22 +49,28 @@
             </div>
             <div class="sidebar-wrapper">
                 <ul class="nav">
-                    <li class="active ">
-                        <a href="javascript:;">
+                    <li class="{{ Request::routeIs('admin.dashboard') ? 'active' : '' }} ">
+                        <a href="{{ route('admin.dashboard') }}">
                             <i class="nc-icon nc-bank"></i>
-                            <p>First Item</p>
+                            <p>Dashboard</p>
                         </a>
                     </li>
-                    <li>
-                        <a href="javascript:;">
-                            <i class="nc-icon nc-diamond"></i>
-                            <p>Second Item</p>
+                    <li class="{{ Request::routeIs('agenda*') ? 'active' : '' }} ">
+                        <a href="{{ route('agenda.index')}}">
+                            <i class="nc-icon nc-time-alarm"></i>
+                            <p>Agenda</p>
                         </a>
                     </li>
-                    <li>
-                        <a href="javascript:;">
+                    <li class="{{ Request::routeIs('contato*') ? 'active' : '' }} ">
+                        <a href="{{ route('contato.index')}}">
                             <i class="nc-icon nc-pin-3"></i>
-                            <p>Third Item</p>
+                            <p>Contatos</p>
+                        </a>
+                    </li>
+                    <li class="{{ Request::routeIs('empresa*') ? 'active' : '' }} ">
+                        <a href="{{ route('empresa.index')}}">
+                            <i class="nc-icon nc-settings"></i>
+                            <p>Empresas</p>
                         </a>
                     </li>
                 </ul>
@@ -170,26 +170,9 @@
             </div>
             <!-- End Content -->
 
-            <footer class="footer" style="position: absolute; bottom: 0; width: -webkit-fill-available;">
-                <div class="container-fluid">
-                    <div class="row">
-                        {{-- <nav class="footer-nav">
-                            <ul>
-                                <li><a href="https://www.creative-tim.com" target="_blank">Creative Tim</a></li>
-                                <li><a href="https://www.creative-tim.com/blog" target="_blank">Blog</a></li>
-                                <li><a href="https://www.creative-tim.com/license" target="_blank">Licenses</a></li>
-                            </ul>
-                        </nav> --}}
-                        <div class="credits ml-auto">
-                            <span class="copyright">
-                                © 2020, made with <i class="fa fa-heart heart"></i> by <a
-                                    href="http://www.rjsites.com.br" target="_blank">RJ Sites</a>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-            <!-- End Footer --> 
+            
+
+            <!-- End Footer -->
         </div>
     </div>
 
@@ -198,18 +181,27 @@
     <script src="{{ asset('js/core/popper.min.js') }}"></script>
     <script src="{{ asset('js/core/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/plugins/perfect-scrollbar.jquery.min.js') }}"></script>
+
     <!--  Google Maps Plugin    -->
     {{-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
     --}}
 
+    
     <!-- Chart JS -->
-    <script src="{{ asset('js/plugins/chartjs.min.js') }}"></script>
-
+    <script src="{{ asset('/js/plugins/chartjs.min.js') }}"></script>
     <!--  Notifications Plugin    -->
-    <script src="{{ asset('js/plugins/bootstrap-notify.js') }}"></script>
-
+    <script src="{{ asset('/js/plugins/bootstrap-notify.js') }}"></script>
     <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="{{ asset('js/paper-dashboard.min.js?v=2.0.1') }}" type="text/javascript"></script>
+    <script src="{{ asset('/js/paper-dashboard.min.js?v=2.0.1') }}" type="text/javascript"></script>
+    <!-- Paper Dashboard DEMO methods, don't include it in your project! -->
+    <script src="{{ asset('/demo/demo.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
+            demo.initChartsPages();
+        });
+
+    </script>
 
     @stack('scripts')
 </body>
