@@ -4,9 +4,15 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Company;
 
 class CompanyController extends Controller
 {
+    protected $request;
+    public function __construct(Request $request){
+        $this->request = $request;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +20,8 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        return view('admin.company.index');
+        $campanies = Company::all();
+        return view('admin.company.index', ['campanies'=> $campanies]);
     }
 
     /**
@@ -24,7 +31,9 @@ class CompanyController extends Controller
      */
     public function create()
     {
-        return view('admin.company.create');
+        $action = "Nova";
+        return view('admin.company.createoredit',
+        ['action'=>$action]);
     }
 
     /**
@@ -35,7 +44,10 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->only('name','cnpj','telephone','email','site','note');
+        Company::create($data);
+
+        return redirect()->route('empresa.index');
     }
 
     /**
@@ -46,7 +58,17 @@ class CompanyController extends Controller
      */
     public function show($id)
     {
-        return view('admin.company.show');
+        $company = Company::find($id);
+        $action = "Ver";
+        $disabled = "disabled='disabled'";
+        //Caso não encontre no BD ele retorna pra tela anterior
+        if(!$company){
+            return redirect()->back();
+        }
+
+        return view('admin.company.createoredit',
+            ['company'=>$company,'action'=>$action,'disabled'=>$disabled]
+        );
     }
 
     /**
@@ -57,7 +79,16 @@ class CompanyController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.company.edit');
+        $company = Company::find($id);
+        $action = "Alterar";
+        //Caso não encontre no BD ele retorna pra tela anterior
+        if(!$company){
+            return redirect()->back();
+        }
+
+        return view('admin.company.createoredit',
+            ['company'=>$company,'action'=>$action]
+        );
     }
 
     /**
@@ -69,7 +100,16 @@ class CompanyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $company = Company::find($id);
+        //Caso não encontre no BD ele retorna pra tela anterior
+        if(!$company){
+            return redirect()->back();
+        }
+
+        $data = $request->all();
+
+        $company->update($data);
+        return redirect()->route('empresa.index');
     }
 
     /**
