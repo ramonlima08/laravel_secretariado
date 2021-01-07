@@ -73,6 +73,12 @@
                             <p>Empresas</p>
                         </a>
                     </li>
+                    <li class="{{ Request::routeIs('responsavel*') ? 'active' : '' }} ">
+                        <a href="{{ route('responsavel.index')}}">
+                            <i class="nc-icon nc-touch-id"></i>
+                            <p>Responsáveis</p>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>

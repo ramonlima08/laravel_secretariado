@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Company;
+use App\Models\Shcedule;
 
 class Contact extends Model
 {
@@ -13,4 +15,11 @@ class Contact extends Model
     {
         return $this->belongsTo(Company::class);
     }
+
+    public function schedule()
+    {
+        return $this->belongsTo(Schedule::class);
+    }
+
+
 }

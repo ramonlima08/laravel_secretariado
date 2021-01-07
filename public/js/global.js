@@ -33,6 +33,7 @@ $(function () {
         $('.maskCnpj').mask('00.000.000/0000-00', {reverse: true});
         $('.maskPhone').mask("(99) 9999-99999");
         $('.maskDate').mask('00/00/0000');
+        $('.maskDateTime').mask('00/00/0000 00:00');
         $('.maskPostalCode').mask('00000-000');
         $('.maskMoney').mask("#.##0,00", {reverse: true});
     }

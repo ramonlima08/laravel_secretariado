@@ -30,10 +30,10 @@
                                 <tr>
                                     <td>{{$contact->id}}</td>
                                     <td>{{$contact->name}}</td>
-                                    <td>{{$contact->company_id}}</td>
+                                    <td>{{$contact->company->name ?? ''}}</td>
                                     <td>{{$contact->telephone ?? $contact->cellphone}}</td>
                                     <td class="text-center">
-                                        <a href="{{ route('contato.edit',$contact->id) }}" class="btn btn-sm btn-primary"> <i class="fa fa-edit"></i> </a>
+                                        <a href="{{ route('contato.edit',$contact->id) }}" class="btn btn-sm btn-warning"> <i class="fa fa-edit"></i> </a>
                                         <a href="{{ route('contato.show',$contact->id) }}" class="btn btn-sm btn-primary"> <i class="fa fa-eye"></i> </a>
                                     </td>
                                 </tr>

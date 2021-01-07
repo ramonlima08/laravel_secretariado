@@ -17,6 +17,7 @@ Route::group([
     Route::resource('/contato', 'Admin\ContactController');
     Route::resource('/empresa', 'Admin\CompanyController');
     Route::resource('/agenda', 'Admin\ScheduleController');
+    Route::resource('/responsavel','Admin\ResponsableController');
     
     //aqui é um caso de redirecionamento para o dashboard
     Route::get('/', function(){
