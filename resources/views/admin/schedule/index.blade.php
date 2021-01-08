@@ -106,8 +106,8 @@
                             <tr class="text-center">
                                 <th>#</th>
                                 <th>Data</th>
-                                <th>Nome</th>
                                 <th>Tipo</th>
+                                <th>Nome</th>
                                 <th>Contato</th>
                                 <th>Obs</th>
                                 <th style="width: 15%">#</th>
@@ -118,8 +118,8 @@
                                 <tr>
                                     <td>{{$schedule->id}}</td>
                                     <td>{{$schedule->getDateFormatBr($schedule->date)}}</td>
-                                    <td>{{$schedule->name}}</td>
                                     <td>{{$schedule->eventType->name}}</td>
+                                    <td>{{$schedule->name}}</td>
                                     <td>{{$schedule->contact->name ?? ''}}</td>
                                     <td>{{$schedule->note}}</td>
                                     <td class="text-center">

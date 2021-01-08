@@ -14,6 +14,7 @@ Route::group([
     'prefix' => 'admin',
 ], function(){
     Route::get('/dashboard', 'Admin\Controller@dashboard')->name('admin.dashboard');
+    Route::get('/perfil','Admin\Controller@perfil')->name('admin.perfil');
     Route::resource('/contato', 'Admin\ContactController');
     Route::resource('/empresa', 'Admin\CompanyController');
     Route::resource('/agenda', 'Admin\ScheduleController');

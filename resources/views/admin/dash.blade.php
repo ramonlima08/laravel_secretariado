@@ -12,13 +12,13 @@
                     <div class="row">
                         <div class="col-5 col-md-4">
                             <div class="icon-big text-center icon-warning">
-                                <i class="nc-icon nc-globe text-warning"></i>
+                                <i class="nc-icon nc-pin-3 text-warning"></i>
                             </div>
                         </div>
                         <div class="col-7 col-md-8">
                             <div class="numbers">
-                                <p class="card-category">Capacity</p>
-                                <p class="card-title">150GB
+                                <p class="card-category">Contatos</p>
+                                <p class="card-title"> {{$contacts ?? 0}}
                                 <p>
                             </div>
                         </div>
@@ -27,8 +27,8 @@
                 <div class="card-footer ">
                     <hr>
                     <div class="stats">
-                        <i class="fa fa-refresh"></i>
-                        Update Now
+                        <i class="fa fa-save"></i>
+                        Contatos Registrados
                     </div>
                 </div>
             </div>
@@ -39,13 +39,13 @@
                     <div class="row">
                         <div class="col-5 col-md-4">
                             <div class="icon-big text-center icon-warning">
-                                <i class="nc-icon nc-money-coins text-success"></i>
+                                <i class="nc-icon nc-settings text-success"></i>
                             </div>
                         </div>
                         <div class="col-7 col-md-8">
                             <div class="numbers">
-                                <p class="card-category">Revenue</p>
-                                <p class="card-title">$ 1,345
+                                <p class="card-category">Empresas</p>
+                                <p class="card-title"> {{$companies ?? 0}}
                                 <p>
                             </div>
                         </div>
@@ -54,8 +54,8 @@
                 <div class="card-footer ">
                     <hr>
                     <div class="stats">
-                        <i class="fa fa-calendar-o"></i>
-                        Last day
+                        <i class="fa fa-save"></i>
+                        Empresas Registradas
                     </div>
                 </div>
             </div>
@@ -66,13 +66,13 @@
                     <div class="row">
                         <div class="col-5 col-md-4">
                             <div class="icon-big text-center icon-warning">
-                                <i class="nc-icon nc-vector text-danger"></i>
+                                <i class="nc-icon nc-touch-id text-danger"></i>
                             </div>
                         </div>
                         <div class="col-7 col-md-8">
                             <div class="numbers">
-                                <p class="card-category">Errors</p>
-                                <p class="card-title">23
+                                <p class="card-category">Responsávies</p>
+                                <p class="card-title">{{$responsibles ?? 0}}
                                 <p>
                             </div>
                         </div>
@@ -81,8 +81,8 @@
                 <div class="card-footer ">
                     <hr>
                     <div class="stats">
-                        <i class="fa fa-clock-o"></i>
-                        In the last hour
+                        <i class="fa fa-save"></i>
+                        Responsáveis Registrados
                     </div>
                 </div>
             </div>
@@ -93,13 +93,13 @@
                     <div class="row">
                         <div class="col-5 col-md-4">
                             <div class="icon-big text-center icon-warning">
-                                <i class="nc-icon nc-favourite-28 text-primary"></i>
+                                <i class="nc-icon nc-time-alarm text-primary"></i>
                             </div>
                         </div>
                         <div class="col-7 col-md-8">
                             <div class="numbers">
-                                <p class="card-category">Followers</p>
-                                <p class="card-title">+45K
+                                <p class="card-category">Agenda</p>
+                                <p class="card-title"> {{$schedules ?? 0}}
                                 <p>
                             </div>
                         </div>
@@ -108,8 +108,8 @@
                 <div class="card-footer ">
                     <hr>
                     <div class="stats">
-                        <i class="fa fa-refresh"></i>
-                        Update now
+                        <i class="fa fa-save"></i>
+                        Agendamentos
                     </div>
                 </div>
             </div>
@@ -117,49 +117,28 @@
     </div>
     {{-- END ROW 1 --}}
 
-    {{-- ROW 2 --}}
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card ">
-                <div class="card-header ">
-                    <h5 class="card-title">Users Behavior</h5>
-                    <p class="card-category">24 Hours performance</p>
-                </div>
-                <div class="card-body ">
-                    <canvas id=chartHours width="400" height="100"></canvas>
-                </div>
-                <div class="card-footer ">
-                    <hr>
-                    <div class="stats">
-                        <i class="fa fa-history"></i> Updated 3 minutes ago
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- END ROW 2 --}}
+    
 
     {{-- ROW 3 --}}
     <div class="row">
         <div class="col-md-4">
             <div class="card ">
                 <div class="card-header ">
-                    <h5 class="card-title">Email Statistics</h5>
-                    <p class="card-category">Last Campaign Performance</p>
+                    <h5 class="card-title">Agendamentos</h5>
+                    <p class="card-category">Período de 30 dias</p>
                 </div>
                 <div class="card-body ">
                     <canvas id="chartEmail"></canvas>
                 </div>
                 <div class="card-footer ">
                     <div class="legend">
-                        <i class="fa fa-circle text-primary"></i> Opened
-                        <i class="fa fa-circle text-warning"></i> Read
-                        <i class="fa fa-circle text-danger"></i> Deleted
-                        <i class="fa fa-circle text-gray"></i> Unopened
+                        <i class="fa fa-circle text-primary"></i> Dr. Mendelssohn
+                        <i class="fa fa-circle text-warning"></i> Dra. Carla
+                        <i class="fa fa-circle text-gray"></i> Sem Responsável
                     </div>
                     <hr>
                     <div class="stats">
-                        <i class="fa fa-calendar"></i> Number of emails sent
+                        <i class="fa fa-calendar"></i> apuração de 01/01/21 à 30/01/21
                     </div>
                 </div>
             </div>
@@ -167,16 +146,16 @@
         <div class="col-md-8">
             <div class="card card-chart">
                 <div class="card-header">
-                    <h5 class="card-title">NASDAQ: AAPL</h5>
-                    <p class="card-category">Line Chart with Points</p>
+                    <h5 class="card-title">Evolução Atendimentos</h5>
+                    <p class="card-category">Quantitativo Mensal</p>
                 </div>
                 <div class="card-body">
                     <canvas id="speedChart" width="400" height="100"></canvas>
                 </div>
                 <div class="card-footer">
                     <div class="chart-legend">
-                        <i class="fa fa-circle text-info"></i> Tesla Model S
-                        <i class="fa fa-circle text-warning"></i> BMW 5 Series
+                        <i class="fa fa-circle text-info"></i> Dr. Mendelssohn
+                        <i class="fa fa-circle text-warning"></i> Dra. Carla
                     </div>
                     <hr />
                     <div class="card-stats">
@@ -190,13 +169,130 @@
 
 @endsection
 
-@push('name')
-    <script src="{{ asset('demo/demo.js') }}"></script>
+{{-- <script src="{{ asset('demo/demo.js') }}"></script> --}}
+
+@push('scripts')
+    
     <script>
         $(document).ready(function() {
             // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
             demo.initChartsPages();
         });
+
+        demo = {
+            
+            initChartsPages: function() {
+                chartColor = "#FFFFFF";
+
+                ctx = document.getElementById('chartEmail').getContext("2d");
+
+                myChart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: ['Dr. Mendelssohn', 'Dra. Carla', 'Sem Responsável'],
+                    datasets: [{
+                    label: "Emails",
+                    pointRadius: 0,
+                    pointHoverRadius: 0,
+                    backgroundColor: [
+                        '#4acccd',
+                        '#fcc468',
+                        '#e3e3e3'
+                    ],
+                    borderWidth: 0,
+                    data: [5, 3, 3]
+                    }]
+                },
+
+                options: {
+
+                    legend: {
+                    display: false
+                    },
+
+                    pieceLabel: {
+                    render: 'percentage',
+                    fontColor: ['white'],
+                    precision: 2
+                    },
+
+                    tooltips: {
+                        enabled: true
+                    },
+
+                    scales: {
+                    yAxes: [{
+
+                        ticks: {
+                        display: false
+                        },
+                        gridLines: {
+                        drawBorder: false,
+                        zeroLineColor: "transparent",
+                        color: 'rgba(255,255,255,0.05)'
+                        }
+
+                    }],
+
+                    xAxes: [{
+                        barPercentage: 1.6,
+                        gridLines: {
+                        drawBorder: false,
+                        color: 'rgba(255,255,255,0.1)',
+                        zeroLineColor: "transparent"
+                        },
+                        ticks: {
+                        display: false,
+                        }
+                    }]
+                    },
+                }
+                });
+
+                var speedCanvas = document.getElementById("speedChart");
+
+                var dataFirst = {
+                data: [0, 19, 15, 13, 12],
+                fill: false,
+                borderColor: '#fbc658',
+                backgroundColor: 'transparent',
+                pointBorderColor: '#fbc658',
+                pointRadius: 4,
+                pointHoverRadius: 4,
+                pointBorderWidth: 8,
+                };
+
+                var dataSecond = {
+                data: [0, 13, 10, 15, 22],
+                fill: false,
+                borderColor: '#51CACF',
+                backgroundColor: 'transparent',
+                pointBorderColor: '#51CACF',
+                pointRadius: 4,
+                pointHoverRadius: 4,
+                pointBorderWidth: 8
+                };
+
+                var speedData = {
+                labels: ["Jan", "Feb", "Mar", "Apr", "May"],
+                datasets: [dataFirst, dataSecond]
+                };
+
+                var chartOptions = {
+                legend: {
+                    display: false,
+                    position: 'top'
+                }
+                };
+
+                var lineChart = new Chart(speedCanvas, {
+                type: 'line',
+                hover: false,
+                data: speedData,
+                options: chartOptions
+                });
+            },
+        }
 
     </script>
 @endpush

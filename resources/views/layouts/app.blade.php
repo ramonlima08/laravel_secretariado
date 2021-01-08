@@ -34,13 +34,13 @@
     <div class="wrapper ">
         <div class="sidebar" data-color="white" data-active-color="danger">
             <div class="logo">
-                <a href="https://www.creative-tim.com" class="simple-text logo-mini">
+                <a href="http://www.rjsites.com.br" target="_blank" class="simple-text logo-mini">
                     <!-- <div class="logo-image-small">
                 <img src="./assets/img/logo-small.png">
                 </div> -->
                     <!-- <p>CT</p> -->
                 </a>
-                <a href="https://www.creative-tim.com" class="simple-text logo-normal">
+                <a href="http://www.rjsites.com.br" target="_blank" class="simple-text logo-normal">
                     RJ Sites Logo
                     <!-- <div class="logo-image-big">
                 <img src="../assets/img/logo-big.png">
@@ -114,7 +114,7 @@
                             </div>
                         </form> --}}
                         <ul class="navbar-nav">
-                            <li class="nav-item btn-rotate dropdown">
+                            {{-- <li class="nav-item btn-rotate dropdown">
                                 <a class="nav-link dropdown-toggle" href="http://example.com"
                                     id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
                                     aria-expanded="false">
@@ -128,7 +128,7 @@
                                     <a class="dropdown-item" href="#">Another action</a>
                                     <a class="dropdown-item" href="#">Something else here</a>
                                 </div>
-                            </li>
+                            </li> --}}
                             <!-- Authentication Links -->
                             @guest
                                 <li class="nav-item">
@@ -147,7 +147,7 @@
                                     </a>
 
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                        <a href="{{ route('admin.home2') }}" class="dropdown-item"> <i
+                                        <a href="{{ route('admin.perfil') }}" class="dropdown-item"> <i
                                                 class="fa fa-cogs"></i> Perfil</a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -202,7 +202,7 @@
     <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="{{ asset('/js/paper-dashboard.min.js?v=2.0.1') }}" type="text/javascript"></script>
     <!-- Paper Dashboard DEMO methods, don't include it in your project! -->
-    <script src="{{ asset('/demo/demo.js') }}"></script>
+    {{-- <script src="{{ asset('/demo/demo.js') }}"></script> --}}
     <!-- GLOBAL JS - funções pre-definidas de várias telas -->
     <script src="{{ asset('/js/global.js') }}"></script>
     <script>
