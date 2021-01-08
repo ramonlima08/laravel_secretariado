@@ -23,7 +23,7 @@ class ScheduleController extends Controller
      */
     public function index()
     {
-        $schedules = Schedule::all();
+        $schedules = Schedule::orderByDesc("date")->get();
         return view('admin.schedule.index',['schedules'=>$schedules]);
     }
 
@@ -135,6 +135,7 @@ class ScheduleController extends Controller
         }
 
         $data = $request->all();
+        $data['date'] = $schedule->getDateFormatBd($data['date']);
 
         $schedule->update($data);
         return redirect()->route('agenda.index');

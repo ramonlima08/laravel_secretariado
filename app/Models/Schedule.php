@@ -15,12 +15,14 @@ class Schedule extends Model
 
     public function getDateFormatBd($value)
     {
-        return Carbon::parse($value)->format('Y-m-d\TH:i');
+        $dt = date("Y-m-d H:i", strtotime(str_replace("/", "-", $value)));
+        return $dt.":00";
     }
 
     public function getDateFormatBr($value)
     {
-        return Carbon::parse($value)->format('d/m/Y H:i');
+        //return Carbon::parse($value)->format('d/m/Y H:i');
+        return date("d/m/Y H:i", strtotime(str_replace("/", "-", $value)));
     }
 
     public function eventType()
