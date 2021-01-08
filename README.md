@@ -14,6 +14,7 @@ Se você tem uma equipe que precisa entrar em contato com os clientes e usuário
 - PHP 7
 - Mysql
 - Composer
+- Npm
 
 ## Instalação
 <!-- Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar. -->
