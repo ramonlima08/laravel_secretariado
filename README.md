@@ -8,6 +8,12 @@ Os acessos ao sistema podem ser configurados e habilitados para os membros do es
 
 Se você tem uma equipe que precisa entrar em contato com os clientes e usuários, o sistema também atende, pois as Empresas Terceiras pode ser utilizada como Clientes e os contatos como Usuarios.
 
+## Requerimentos
+
+- O Sistema utiliza o framework Laravel na versão 7.3
+- PHP 7
+- Mysql
+- Composer
 
 ## Instalação
 <!-- Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar. -->
