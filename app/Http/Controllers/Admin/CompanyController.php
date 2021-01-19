@@ -44,6 +44,14 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
+        $messages  = [
+            'name.required' => 'O nome é obrigatório'
+        ];
+
+        $request->validate([
+            'name' => 'required',
+        ], $messages);
+
         $data = $request->only('name','cnpj','telephone','email','site','note');
         Company::create($data);
 
@@ -100,6 +108,14 @@ class CompanyController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $messages  = [
+            'name.required' => 'O nome é obrigatório'
+        ];
+
+        $request->validate([
+            'name' => 'required',
+        ], $messages);
+        
         $company = Company::find($id);
         //Caso não encontre no BD ele retorna pra tela anterior
         if(!$company){

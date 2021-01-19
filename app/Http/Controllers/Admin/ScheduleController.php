@@ -55,6 +55,20 @@ class ScheduleController extends Controller
      */
     public function store(Request $request)
     {
+        $messages  = [
+            'name.required' => 'O nome é obrigatório',
+            'date.required' => 'A Data do evento é obrigatória',
+            'contact_id.required' => 'O Contato obrigatório',
+            'event_type_id.required' => 'O tipo do evento obrigatório'
+        ];
+
+        $request->validate([
+            'name' => 'required',
+            'date' => 'required',
+            'event_type_id' => 'required',
+            'contact_id' => 'required'
+        ], $messages);
+
         $data = $request->only('name','date','contact_id','event_type_id','resopnsible_id','note');
         $obj = new Schedule();
         $data['date'] = $obj->getDateFormatBd($data['date']);
@@ -128,6 +142,20 @@ class ScheduleController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $messages  = [
+            'name.required' => 'O nome é obrigatório',
+            'date.required' => 'A Data do evento é obrigatória',
+            'contact_id.required' => 'O Contato obrigatório',
+            'event_type_id.required' => 'O tipo do evento obrigatório'
+        ];
+
+        $request->validate([
+            'name' => 'required',
+            'date' => 'required',
+            'event_type_id' => 'required',
+            'contact_id' => 'required'
+        ], $messages);
+        
         $schedule = Schedule::find($id);
         //Caso não encontre no BD ele retorna pra tela anterior
         if(!$schedule){

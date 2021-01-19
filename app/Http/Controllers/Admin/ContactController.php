@@ -50,6 +50,14 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
+        $messages  = [
+            'name.required' => 'O nome é obrigatório'
+        ];
+
+        $request->validate([
+            'name' => 'required',
+        ], $messages);
+
         $data = $request->only('name','company_id','cellphone','telephone','email','note');
         if($data['company_id']==0){
             $data['company_id'] = null;
@@ -124,6 +132,14 @@ class ContactController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $messages  = [
+            'name.required' => 'O nome é obrigatório'
+        ];
+
+        $request->validate([
+            'name' => 'required',
+        ], $messages);
+        
         $contact = Contact::find($id);
         //Caso não encontre no BD ele retorna pra tela anterior
         if(!$contact){

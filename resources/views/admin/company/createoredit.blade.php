@@ -14,6 +14,18 @@
             @endisset
             
                 @csrf
+
+                @if ($errors->any())
+                <div class="alert alert-warning">
+                    <p>Falha ao salvar</p>
+                    <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                    </ul>
+                </div>
+                @endif
+                
                 <div class="card">
                     <div class="card-header">
                         <h5 class="card-title">Dados da Empresa</h5>
