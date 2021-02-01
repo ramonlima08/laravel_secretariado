@@ -61,6 +61,12 @@
                             <p>Agenda</p>
                         </a>
                     </li>
+                    <li class="{{ Request::routeIs('admin.financeiro*','banco*') ? 'active' : '' }} ">
+                        <a href="{{ route('admin.financeiro')}}">
+                            <i class="nc-icon nc-money-coins"></i>
+                            <p>Financeiro</p>
+                        </a>
+                    </li>
                     <li class="{{ Request::routeIs('contato*') ? 'active' : '' }} ">
                         <a href="{{ route('contato.index')}}">
                             <i class="nc-icon nc-pin-3"></i>
