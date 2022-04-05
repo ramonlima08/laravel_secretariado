@@ -13,10 +13,10 @@ class UserTableSeeder extends Seeder
     public function run()
     {
         $user1 =  User::updateOrCreate([
-            'email' => 'ramon@pensajur.com.br',
-            'name' => 'Ramon Lima',
+            'email' => 'admin@gmail.com',
+            'name' => 'Administrador',
             'profile' => 1,
-            'password' => Hash::make('12345678')
+            'password' => Hash::make('123456789')
         ]);
     }
 }
