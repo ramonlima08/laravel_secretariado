@@ -1,9 +1,9 @@
-version: "3.7"
+version: "3.3"
 services:
   app:
     build:
       args:
-        user: sammy
+        user: ubuntuwsl
         uid: 1000
       context: ./
       dockerfile: Dockerfile
@@ -13,24 +13,6 @@ services:
     working_dir: /var/www/
     volumes:
       - ./:/var/www
-    networks:
-      - secretariado
-
-  db:
-    image: mysql:5.7
-    container_name: secretariado-db
-    restart: unless-stopped
-    environment:
-      MYSQL_DATABASE: ${DB_DATABASE}
-      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
-      MYSQL_PASSWORD: ${DB_PASSWORD}
-      MYSQL_USER: ${DB_USERNAME}
-      SERVICE_TAGS: dev
-      SERVICE_NAME: mysql
-    volumes:
-      - ./docker-compose/mysql:/docker-entrypoint-initdb.d
-    networks:
-      - secretariado
 
   nginx:
     image: nginx:alpine
@@ -41,9 +23,4 @@ services:
     volumes:
       - ./:/var/www
       - ./docker-compose/nginx:/etc/nginx/conf.d/
-    networks:
-      - secretariado
 
-networks:
-  secretariado:
-    driver: bridge
